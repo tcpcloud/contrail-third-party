@@ -34,6 +34,10 @@
 	  <version>14.04+</version>
 	</distribution>
 	<distribution>
+	  <name>ubuntu</name>
+	  <version>16.04+</version>
+	</distribution>
+	<distribution>
 	  <name>centos</name>
 	  <version>7.0+</version>
 	</distribution>
@@ -61,6 +65,10 @@
 	<distribution>
 	  <name>ubuntu</name>
 	  <version>14.04+</version>
+	</distribution>
+	<distribution>
+	  <name>ubuntu</name>
+	  <version>16.04+</version>
 	</distribution>
 	<distribution>
 	  <name>centos</name>
@@ -93,6 +101,10 @@
 	  <version>14.04+</version>
 	</distribution>
 	<distribution>
+	  <name>ubuntu</name>
+	  <version>16.04+</version>
+	</distribution>
+	<distribution>
 	  <name>fedora</name>
 	  <version>20+</version>
 	</distribution>
@@ -116,6 +128,10 @@
 	  <version>14.04+</version>
 	</distribution>
 	<distribution>
+	  <name>ubuntu</name>
+	  <version>16.04+</version>
+	</distribution>
+	<distribution>
 	  <name>fedora</name>
 	  <version>20+</version>
 	</distribution>
@@ -136,6 +152,10 @@
 	<distribution>
 	  <name>ubuntu</name>
 	  <version>14.04+</version>
+	</distribution>
+	<distribution>
+	  <name>ubuntu</name>
+	  <version>16.04+</version>
 	</distribution>
 	<distribution>
 	  <name>fedora</name>
@@ -173,6 +193,10 @@
 	  <version>14.04+</version>
 	</distribution>
 	<distribution>
+	  <name>ubuntu</name>
+	  <version>16.04+</version>
+	</distribution>
+	<distribution>
 	  <name>fedora</name>
 	  <version>20+</version>
 	</distribution>
@@ -196,6 +220,10 @@
 	<distribution>
 	  <name>ubuntu</name>
 	  <version>14.04+</version>
+	</distribution>
+	<distribution>
+	  <name>ubuntu</name>
+	  <version>16.04+</version>
 	</distribution>
 	<distribution>
 	  <name>centos</name>
@@ -274,6 +302,10 @@
 	  <version>14.04+</version>
 	</distribution>
 	<distribution>
+	  <name>ubuntu</name>
+	  <version>16.04+</version>
+	</distribution>
+	<distribution>
 	  <name>suse</name>
 	  <version>12+</version>
 	</distribution>
@@ -296,6 +328,10 @@
 	<distribution>
 	  <name>ubuntu</name>
 	  <version>14.04+</version>
+	</distribution>
+	<distribution>
+	  <name>ubuntu</name>
+	  <version>16.04+</version>
 	</distribution>
 	<distribution>
 	  <name>centos</name>
@@ -341,6 +377,10 @@
 	<distribution>
 	  <name>ubuntu</name>
 	  <version>14.04+</version>
+	</distribution>
+	<distribution>
+	  <name>ubuntu</name>
+	  <version>16.04+</version>
 	</distribution>
 	<distribution>
 	  <name>centos</name>
