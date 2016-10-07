@@ -137,7 +137,10 @@ def ReconfigurePackageSources(path):
         sys.exit('Terminating: autoreconf returned with error code: %d', ret)
 
 def PlatformInfo():
-    (distname, version, _) = platform.dist()
+    if os.getenv('DIST'):
+        (distname, version, _) = (os.getenv('DIST'), os.getenv('VERSION'), "")
+    else:
+        (distname, version, _) = platform.dist()
     return (distname.lower(), version)
 
 def VersionMatch(v_sys, v_spec):
@@ -158,7 +161,7 @@ def PlatformMatch(system, spec):
     if system[0] != spec[0]:
         return False
     return VersionMatch(str(system[1]), str(spec[1]))
-    
+
 def PlatformRequires(pkg):
     platform = pkg.find('platform')
     if platform is None:
@@ -225,7 +228,7 @@ def ProcessPackage(pkg):
             os.makedirs(str(unpackdir))
         except OSError as exc:
             pass
-        
+
 
     if pkg.format == 'tgz':
         cmd = ['tar', 'zxvf', ccfile]
