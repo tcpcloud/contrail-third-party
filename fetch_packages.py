@@ -19,7 +19,7 @@ ARGS['filename'] = 'packages.xml'
 if 'USER' in os.environ.keys():
     ARGS['cache_dir']=  '/tmp/cache/' + os.environ['USER'] + '/third_party'
 else:
-    ARGS['cache_dir'] = '.cache'
+    ARGS['cache_dir'] = '%s/.cache' % os.getcwd()
 ARGS['node_modules_dir'] = 'node_modules'
 ARGS['node_modules_tmp_dir'] = ARGS['cache_dir'] + '/' + ARGS['node_modules_dir']
 ARGS['verbose'] = False
