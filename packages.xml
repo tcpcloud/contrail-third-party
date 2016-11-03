@@ -395,12 +395,12 @@
   </package>
   <package>
     <name>ISC Bind</name>
-    <url>https://ftp.isc.org/isc/bind/cur/9.10/bind-9.10.4-P3.tar.gz</url>
+    <url>https://ftp.isc.org/isc/bind/cur/9.10/bind-9.10.4-P4.tar.gz</url>
     <format>tgz</format>
-    <md5>2ce7b49516d3df1490bf2263f474b2d6</md5>
+    <md5>e110904a1d54f83f01d4be8bcd842927</md5>
     <patches>
-      <patch strip="1">bind-9.10.4-P3-patch1.diff</patch>
-      <patch strip="1">bind-9.10.4-P3-patch2.diff</patch>
+      <patch strip="1">bind-9.10.4-P4-patch1.diff</patch>
+      <patch strip="1">bind-9.10.4-P4-patch2.diff</patch>
     </patches>
   </package>
   <package>

@@ -1,7 +1,7 @@
-diff --git a/bind-9.10.4-P3/bin/named/client.c b/bind-9.10.4-P3/bin/named/client.c
+diff --git a/bind-9.10.4-P4/bin/named/client.c b/bind-9.10.4-P4/bin/named/client.c
 index a824eae..3107942 100644
---- a/bind-9.10.4-P3/bin/named/client.c
-+++ b/bind-9.10.4-P3/bin/named/client.c
+--- a/bind-9.10.4-P4/bin/named/client.c
++++ b/bind-9.10.4-P4/bin/named/client.c
 @@ -1499,6 +1499,35 @@ allowed(isc_netaddr_t *addr, dns_name_t *signer, dns_acl_t *acl) {
  	return (ISC_FALSE);
  }
@@ -64,10 +64,10 @@ index a824eae..3107942 100644
  		}
  	}
  
-diff --git a/bind-9.10.4-P3/bin/named/include/named/query.h b/bind-9.10.4-P3/bin/named/include/named/query.h
+diff --git a/bind-9.10.4-P4/bin/named/include/named/query.h b/bind-9.10.4-P4/bin/named/include/named/query.h
 index 82fd0cb..7050231 100644
---- a/bind-9.10.4-P3/bin/named/include/named/query.h
-+++ b/bind-9.10.4-P3/bin/named/include/named/query.h
+--- a/bind-9.10.4-P4/bin/named/include/named/query.h
++++ b/bind-9.10.4-P4/bin/named/include/named/query.h
 @@ -30,6 +30,13 @@
  
  #include <named/types.h>
@@ -93,10 +93,10 @@ index 82fd0cb..7050231 100644
  	isc_boolean_t			timerset;
  	dns_name_t *			qname;
  	dns_name_t *			origqname;
-diff --git a/bind-9.10.4-P3/bin/named/query.c b/bind-9.10.4-P3/bin/named/query.c
+diff --git a/bind-9.10.4-P4/bin/named/query.c b/bind-9.10.4-P4/bin/named/query.c
 index 52d13b6..c845db4 100644
---- a/bind-9.10.4-P3/bin/named/query.c
-+++ b/bind-9.10.4-P3/bin/named/query.c
+--- a/bind-9.10.4-P4/bin/named/query.c
++++ b/bind-9.10.4-P4/bin/named/query.c
 @@ -353,6 +353,9 @@ static inline void
  query_reset(ns_client_t *client, isc_boolean_t everything) {
  	isc_buffer_t *dbuf, *dbuf_next;
@@ -401,10 +401,10 @@ index 52d13b6..c845db4 100644
  	if (want_restart && client->query.restarts < MAX_RESTARTS) {
  		client->query.restarts++;
  		goto restart;
-diff --git a/bind-9.10.4-P3/bin/named/server.c b/bind-9.10.4-P3/bin/named/server.c
+diff --git a/bind-9.10.4-P4/bin/named/server.c b/bind-9.10.4-P4/bin/named/server.c
 index 33483f8..122a8e3 100644
---- a/bind-9.10.4-P3/bin/named/server.c
-+++ b/bind-9.10.4-P3/bin/named/server.c
+--- a/bind-9.10.4-P4/bin/named/server.c
++++ b/bind-9.10.4-P4/bin/named/server.c
 @@ -401,6 +401,14 @@ static isc_result_t
  configure_forward(const cfg_obj_t *config, dns_view_t *view, dns_name_t *origin,
  		  const cfg_obj_t *forwarders, const cfg_obj_t *forwardtype);
@@ -535,10 +535,10 @@ index 33483f8..122a8e3 100644
  	/* Swap our new cache list with the production one. */
  	tmpcachelist = server->cachelist;
  	server->cachelist = cachelist;
-diff --git a/bind-9.10.4-P3/bin/rndc/Makefile.in b/bind-9.10.4-P3/bin/rndc/Makefile.in
+diff --git a/bind-9.10.4-P4/bin/rndc/Makefile.in b/bind-9.10.4-P4/bin/rndc/Makefile.in
 index ea5339e..64ef339 100644
---- a/bind-9.10.4-P3/bin/rndc/Makefile.in
-+++ b/bind-9.10.4-P3/bin/rndc/Makefile.in
+--- a/bind-9.10.4-P4/bin/rndc/Makefile.in
++++ b/bind-9.10.4-P4/bin/rndc/Makefile.in
 @@ -51,7 +51,7 @@ CONFDEPLIBS =	${DNSDEPLIBS} ${ISCDEPLIBS}
  
  SRCS=		rndc.c
@@ -587,10 +587,10 @@ index ea5339e..64ef339 100644
  	${INSTALL_DATA} ${srcdir}/rndc.8 ${DESTDIR}${mandir}/man8
  	${INSTALL_DATA} ${srcdir}/rndc.conf.5 ${DESTDIR}${mandir}/man5
  
-diff --git a/bind-9.10.4-P3/bin/rndc/rndc.c b/bind-9.10.4-P3/bin/rndc/rndc.c
+diff --git a/bind-9.10.4-P4/bin/rndc/rndc.c b/bind-9.10.4-P4/bin/rndc/rndc.c
 index d6b5992..a9aa3b6 100644
---- a/bind-9.10.4-P3/bin/rndc/rndc.c
-+++ b/bind-9.10.4-P3/bin/rndc/rndc.c
+--- a/bind-9.10.4-P4/bin/rndc/rndc.c
++++ b/bind-9.10.4-P4/bin/rndc/rndc.c
 @@ -60,6 +60,15 @@
  
  #define SERVERADDRS 10
@@ -641,10 +641,10 @@ index d6b5992..a9aa3b6 100644
  	isc_result_t result = ISC_R_SUCCESS;
  	isc_boolean_t show_final_mem = ISC_FALSE;
  	isc_taskmgr_t *taskmgr = NULL;
-diff --git a/bind-9.10.4-P3/configure b/bind-9.10.4-P3/configure
+diff --git a/bind-9.10.4-P4/configure b/bind-9.10.4-P4/configure
 index 6779cc3..7d91fd0 100755
---- a/bind-9.10.4-P3/configure
-+++ b/bind-9.10.4-P3/configure
+--- a/bind-9.10.4-P4/configure
++++ b/bind-9.10.4-P4/configure
 @@ -2797,6 +2797,7 @@ fi
  ## Main body of script. ##
  ## -------------------- ##
@@ -653,10 +653,10 @@ index 6779cc3..7d91fd0 100755
  ac_ext=c
  ac_cpp='$CPP $CPPFLAGS'
  ac_compile='$CC -c $CFLAGS $CPPFLAGS conftest.$ac_ext >&5'
-diff --git a/bind-9.10.4-P3/lib/bind9/check.c b/bind-9.10.4-P3/lib/bind9/check.c
+diff --git a/bind-9.10.4-P4/lib/bind9/check.c b/bind-9.10.4-P4/lib/bind9/check.c
 index 79049ec..05ee835 100644
---- a/bind-9.10.4-P3/lib/bind9/check.c
-+++ b/bind-9.10.4-P3/lib/bind9/check.c
+--- a/bind-9.10.4-P4/lib/bind9/check.c
++++ b/bind-9.10.4-P4/lib/bind9/check.c
 @@ -264,6 +264,16 @@ check_forward(const cfg_obj_t *options,  const cfg_obj_t *global,
  	return (ISC_R_SUCCESS);
  }
@@ -712,10 +712,10 @@ index 79049ec..05ee835 100644
  	/*
  	 * Check non-zero options at the global and view levels.
  	 */
-diff --git a/bind-9.10.4-P3/lib/dns/include/dns/message.h b/bind-9.10.4-P3/lib/dns/include/dns/message.h
+diff --git a/bind-9.10.4-P4/lib/dns/include/dns/message.h b/bind-9.10.4-P4/lib/dns/include/dns/message.h
 index 2d1c9d7..cd5cbe4 100644
---- a/bind-9.10.4-P3/lib/dns/include/dns/message.h
-+++ b/bind-9.10.4-P3/lib/dns/include/dns/message.h
+--- a/bind-9.10.4-P4/lib/dns/include/dns/message.h
++++ b/bind-9.10.4-P4/lib/dns/include/dns/message.h
 @@ -259,6 +259,9 @@ struct dns_message {
  
  	dns_rdatasetorderfunc_t		order;
@@ -726,10 +726,10 @@ index 2d1c9d7..cd5cbe4 100644
  };
  
  struct dns_ednsopt {
-diff --git a/bind-9.10.4-P3/lib/dns/include/dns/view.h b/bind-9.10.4-P3/lib/dns/include/dns/view.h
+diff --git a/bind-9.10.4-P4/lib/dns/include/dns/view.h b/bind-9.10.4-P4/lib/dns/include/dns/view.h
 index 32f76b5..326db4c 100644
---- a/bind-9.10.4-P3/lib/dns/include/dns/view.h
-+++ b/bind-9.10.4-P3/lib/dns/include/dns/view.h
+--- a/bind-9.10.4-P4/lib/dns/include/dns/view.h
++++ b/bind-9.10.4-P4/lib/dns/include/dns/view.h
 @@ -182,6 +182,10 @@ struct dns_view {
  	dns_acl_t *			matchclients;
  	dns_acl_t *			matchdestinations;
@@ -741,10 +741,10 @@ index 32f76b5..326db4c 100644
  
  	/* Locked by themselves. */
  	isc_refcount_t			references;
-diff --git a/bind-9.10.4-P3/lib/dns/include/dns/zone.h b/bind-9.10.4-P3/lib/dns/include/dns/zone.h
+diff --git a/bind-9.10.4-P4/lib/dns/include/dns/zone.h b/bind-9.10.4-P4/lib/dns/include/dns/zone.h
 index a9367f1..0569523 100644
---- a/bind-9.10.4-P3/lib/dns/include/dns/zone.h
-+++ b/bind-9.10.4-P3/lib/dns/include/dns/zone.h
+--- a/bind-9.10.4-P4/lib/dns/include/dns/zone.h
++++ b/bind-9.10.4-P4/lib/dns/include/dns/zone.h
 @@ -233,6 +233,44 @@ dns_zone_getview(dns_zone_t *zone);
   *\li	'zone' to be a valid zone.
   */
@@ -790,10 +790,10 @@ index a9367f1..0569523 100644
  isc_result_t
  dns_zone_setorigin(dns_zone_t *zone, const dns_name_t *origin);
  /*%<
-diff --git a/bind-9.10.4-P3/lib/dns/include/dns/zt.h b/bind-9.10.4-P3/lib/dns/include/dns/zt.h
+diff --git a/bind-9.10.4-P4/lib/dns/include/dns/zt.h b/bind-9.10.4-P4/lib/dns/include/dns/zt.h
 index f91d7e8..9604a8f 100644
---- a/bind-9.10.4-P3/lib/dns/include/dns/zt.h
-+++ b/bind-9.10.4-P3/lib/dns/include/dns/zt.h
+--- a/bind-9.10.4-P4/lib/dns/include/dns/zt.h
++++ b/bind-9.10.4-P4/lib/dns/include/dns/zt.h
 @@ -200,6 +200,17 @@ dns_zt_apply2(dns_zt_t *zt, isc_boolean_t stop, isc_result_t *sub,
   *	any error code from 'action'.
   */
@@ -812,10 +812,10 @@ index f91d7e8..9604a8f 100644
  isc_boolean_t
  dns_zt_loadspending(dns_zt_t *zt);
  /*%<
-diff --git a/bind-9.10.4-P3/lib/dns/message.c b/bind-9.10.4-P3/lib/dns/message.c
+diff --git a/bind-9.10.4-P4/lib/dns/message.c b/bind-9.10.4-P4/lib/dns/message.c
 index c49bfa2..fe9b397 100644
---- a/bind-9.10.4-P3/lib/dns/message.c
-+++ b/bind-9.10.4-P3/lib/dns/message.c
+--- a/bind-9.10.4-P4/lib/dns/message.c
++++ b/bind-9.10.4-P4/lib/dns/message.c
 @@ -1247,6 +1247,9 @@ getsection(isc_buffer_t *source, dns_message_t *msg, dns_decompress_t *dctx,
  		    && rdtype != dns_rdatatype_key /* in a TKEY query */
  		    && rdtype != dns_rdatatype_sig /* SIG(0) */
@@ -854,10 +854,10 @@ index c49bfa2..fe9b397 100644
  
  	/*
  	 * -1 means no EDNS.
-diff --git a/bind-9.10.4-P3/lib/dns/view.c b/bind-9.10.4-P3/lib/dns/view.c
+diff --git a/bind-9.10.4-P4/lib/dns/view.c b/bind-9.10.4-P4/lib/dns/view.c
 index e3e0591..77e30b5 100644
---- a/bind-9.10.4-P3/lib/dns/view.c
-+++ b/bind-9.10.4-P3/lib/dns/view.c
+--- a/bind-9.10.4-P4/lib/dns/view.c
++++ b/bind-9.10.4-P4/lib/dns/view.c
 @@ -141,6 +141,10 @@ dns_view_create(isc_mem_t *mctx, dns_rdataclass_t rdclass,
  	view->matchclients = NULL;
  	view->matchdestinations = NULL;
@@ -882,10 +882,10 @@ index e3e0591..77e30b5 100644
  	if (view->cacheacl != NULL)
  		dns_acl_detach(&view->cacheacl);
  	if (view->cacheonacl != NULL)
-diff --git a/bind-9.10.4-P3/lib/dns/zone.c b/bind-9.10.4-P3/lib/dns/zone.c
+diff --git a/bind-9.10.4-P4/lib/dns/zone.c b/bind-9.10.4-P4/lib/dns/zone.c
 index 629a221..3de7975 100644
---- a/bind-9.10.4-P3/lib/dns/zone.c
-+++ b/bind-9.10.4-P3/lib/dns/zone.c
+--- a/bind-9.10.4-P4/lib/dns/zone.c
++++ b/bind-9.10.4-P4/lib/dns/zone.c
 @@ -312,6 +312,11 @@ struct dns_zone {
  	dns_checkmxfunc_t	checkmx;
  	dns_checksrvfunc_t	checksrv;
@@ -973,10 +973,10 @@ index 629a221..3de7975 100644
  /*
   * Returns ISC_TRUE iff this the signed side of an inline-signing zone.
   * Caller should hold zone lock.
-diff --git a/bind-9.10.4-P3/lib/dns/zt.c b/bind-9.10.4-P3/lib/dns/zt.c
+diff --git a/bind-9.10.4-P4/lib/dns/zt.c b/bind-9.10.4-P4/lib/dns/zt.c
 index ffc76bb..ed8b84d 100644
---- a/bind-9.10.4-P3/lib/dns/zt.c
-+++ b/bind-9.10.4-P3/lib/dns/zt.c
+--- a/bind-9.10.4-P4/lib/dns/zt.c
++++ b/bind-9.10.4-P4/lib/dns/zt.c
 @@ -527,6 +527,43 @@ doneloading(dns_zt_t *zt, dns_zone_t *zone, isc_task_t *task) {
  	return (ISC_R_SUCCESS);
  }
@@ -1021,10 +1021,10 @@ index ffc76bb..ed8b84d 100644
  /***
   *** Private
   ***/
-diff --git a/bind-9.10.4-P3/lib/isccfg/namedconf.c b/bind-9.10.4-P3/lib/isccfg/namedconf.c
+diff --git a/bind-9.10.4-P4/lib/isccfg/namedconf.c b/bind-9.10.4-P4/lib/isccfg/namedconf.c
 index 67d65f0..0b50558 100644
---- a/bind-9.10.4-P3/lib/isccfg/namedconf.c
-+++ b/bind-9.10.4-P3/lib/isccfg/namedconf.c
+--- a/bind-9.10.4-P4/lib/isccfg/namedconf.c
++++ b/bind-9.10.4-P4/lib/isccfg/namedconf.c
 @@ -1632,6 +1632,9 @@ view_clauses[] = {
   */
  static cfg_clausedef_t
